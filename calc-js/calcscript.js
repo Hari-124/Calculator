@@ -1,13 +1,24 @@
 let calculation='';
       let value='';
+      let calc='';
+      let flag=false;
       function calculate(object){
+        if(flag){
+          if(!isNaN(object))
+            value='';
+          else
+            value=calc;
+            calc='';
+          flag=false;
+        }
           value += object;
         displayCalculation(value);
       }
       function calculateResult(){
         if(value === '')return;
         calculation=eval(value);
-          value=calculation;
+         calc=calculation;
+         flag=true;
           displayCalculation(calculation);
       }
       function displayCalculation(result){
